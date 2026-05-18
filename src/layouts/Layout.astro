@@ -16,6 +16,9 @@ import '@fontsource-variable/roboto/wght.css';
 	</head>
 	<body>
 		<Header />
+		<main>
+			<slot /> 
+		</main>
 	</body>
 </html>
 
@@ -26,9 +29,11 @@ import '@fontsource-variable/roboto/wght.css';
 	html{ 
 		font-family: 'Roboto Variable', sans-serif;
 		background: rgb(1, 1, 30);
-	},
+	}
 	body {
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
 	}
 </style>
