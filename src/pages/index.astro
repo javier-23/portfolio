@@ -6,10 +6,10 @@ import Terminal from '../components/Terminal.astro';
 <Layout>
 	<main>
 		<!-- Sección de bienvenida -->
-		<section class="mx-20 my-40 flex justify-between items-center px-40 border-2 border-blue-600">
+		<section class=" my-50 flex justify-center gap-30 items-center">
 			
 			<Terminal/>
-			<img src="/favicon.svg" alt="javier photo" class="border-2 border-blue-600 rounded-full h-64 w-64" />
+			<img src="/favicon.svg" alt="perfil" class="border-2 border-blue-600 rounded-full h-80 w-80" />
 		
 			<!-- Indicador de Scroll
 			<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow z-10">
@@ -18,5 +18,17 @@ import Terminal from '../components/Terminal.astro';
 				</span>
 			</div> -->
 		</section>
+
+		<div class="main__action w-15 h-15"> 
+			<a class="main__scroll" href="#">
+				<div class="main__scroll-box">
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M11.9997 13.1716L7.04996     8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z" fill="rgba(28,28,30,1)">
+						</path>
+					</svg>
+				</div>
+			</a>
+		</div>
 	</main>
 </Layout>
