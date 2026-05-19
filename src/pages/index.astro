@@ -1,11 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import Terminal from '../components/Terminal.astro';
 ---
 
 <Layout>
 	<main>
-		<h1 class="text-4xl text-red-500 font-bold">Hola, soy Javier Mora</h1>
-		<p class="text-gray-300 mt-4 text-lg">Desarrollador web y entusiasta de la tecnología.</p>
+		<!-- Sección de bienvenida -->
+		<section class="mx-20 my-40 flex justify-between items-center px-40 border-2 border-blue-600">
+			
+			<Terminal/>
+			<img src="/favicon.svg" alt="javier photo" class="border-2 border-blue-600 rounded-full h-64 w-64" />
+		
+			<!-- Indicador de Scroll
+			<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow z-10">
+				<span class="material-symbols-outlined text-primary/70 text-3xl drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">
+					keyboard_arrow_down
+				</span>
+			</div> -->
+		</section>
 	</main>
 </Layout>
