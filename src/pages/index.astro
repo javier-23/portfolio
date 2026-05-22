@@ -3,31 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import Terminal from '../components/Terminal.astro';
 ---
 
-<Layout>
+<Layout title="Portfolio de Javier Mora - Programador y desarrollador web" 
+		description="Bienvenido a mi portfolio, soy un desarrollador web full-stack especializado en tecnologías modernas. Explora mis proyectos y habilidades en desarrollo web."
+>
 	<main>
 		<!-- Sección de bienvenida -->
 		<section class=" my-50 flex justify-center gap-30 items-center">
-			
 			<Terminal/>
-			<img src="/favicon.svg" alt="perfil" class="border-2 border-blue-600 rounded-full h-80 w-80" />
-		
-			<!-- Indicador de Scroll
-			<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow z-10">
-				<span class="material-symbols-outlined text-primary/70 text-3xl drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">
-					keyboard_arrow_down
-				</span>
-			</div> -->
+			<div class="size-90 rounded-full overflow-hidden border-2 border-blue-600">
+				<img src="/perfil.png" alt="perfil" class="w-full h-full object-cover" />
+			</div>
 		</section>
 
-		<div class="main__action w-15 h-15"> 
+		<div class="main__action size-15 absolute bottom-10 left-1/2"> 
 			<a class="main__scroll" href="#">
-				<div class="main__scroll-box">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-						<path d="M0 0h24v24H0z" fill="none"></path>
-						<path d="M11.9997 13.1716L7.04996     8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z" fill="rgba(28,28,30,1)">
-						</path>
-					</svg>
-				</div>
+				<svg class="text-cyan-400 shadow-blue" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M11.9997 13.1716L7.04996     8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z" fill="currentColor">
+					</path>
+				</svg>
 			</a>
 		</div>
 	</main>

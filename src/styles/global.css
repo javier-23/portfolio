@@ -1,12 +1,18 @@
 @import "tailwindcss";
+/* Supports weights 100-800 */
+@import "@fontsource-variable/jetbrains-mono/wght.css";
 
-.main__action {
-  animation: scroll-down 3s infinite;
+@theme {
+  --font-jetbrains: "JetBrains Mono Variable", monospace;
 }
 
-.main__scroll-box svg{
-  fill: #0ea5e9;
-  filter: drop-shadow(0 0 8px rgba(14,165,233,0.6));
+.shadow-blue {
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.8));
+}
+
+/* Animación para el icono de scroll */
+.main__action {
+  animation: scroll-down 3s infinite;
 }
 
 /* Animate scroll icon */
