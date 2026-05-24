@@ -1,0 +1,31 @@
+---
+interface ExperienceItemProps {
+    date: string;
+    title: string;
+    description: string;
+    option?: string;
+    company?: string;
+}
+const {date, title, description, option, company} = Astro.props as ExperienceItemProps;
+---
+
+<li class="mb-20 ms-14">            
+    <span class="absolute flex items-center justify-center size-6 bg-primary-blue rounded-full -inset-s-3.5 ring-8">
+    </span>
+    <h3 class="flex items-center mb-2 text-2xl font-semibold text-primary-white my-2 ">
+        {title}
+        {option && (
+             <span class="ms-2 bg-primary-blue/20 border border-primary-blue text-xs font-medium px-1.5 py-0.5 rounded">
+                {option}
+            </span>
+        )}
+    </h3>
+    <div class="inline-flex w-fit mb-4 border border-default-medium text-secondary-gray text-md font-medium px-3 py-1 rounded ">
+        {company && <span>{company}</span>}
+        {company && <span class="mx-2">|</span>}
+        <span>{date}</span>
+    </div>
+    <p class="mb-4 text-secondary-gray text-lg font-normal">
+        {description}
+    </p>
+</li>

@@ -1,0 +1,25 @@
+---
+const EXPERIENCE = [
+    {
+        date: 'Noviembre, 2025',
+        title: 'Flowbite Figma v1.3.0',
+        description: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
+        company: 'MAYASA'
+    },
+    {
+        date: 'October 14th, 2024',
+        title: 'Flowbite Library v1.2.2',
+        description: 'Get started with dozens of web components and interactive elements built on top of Tailwind CSS.',
+    },
+]
+
+import ExperienceItem from "./ExperienceItem.astro"
+---
+
+
+<ol class="relative border-s-3 border-primary-blue/50">                  
+    {EXPERIENCE.map((item) => (
+        <ExperienceItem {...item}/>
+    ))}
+</ol>
+
