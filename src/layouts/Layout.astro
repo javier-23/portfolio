@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 import '@fontsource-variable/roboto/wght.css';
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import '@fontsource-variable/roboto/wght.css';
 		<main>
 			<slot /> 
 		</main>
+		<Footer />
 	</body>
 </html>
 
@@ -29,10 +31,18 @@ import '@fontsource-variable/roboto/wght.css';
 	html{ 
 		font-family: 'Roboto Variable', sans-serif;
 		background: rgb(2, 2, 30);
+		scroll-behavior: smooth;
 	}
 	body {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+	}
+
+	/* Evitar que el scroll suave afecte a usuarios con preferencias de reducción de movimiento */
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 </style>
