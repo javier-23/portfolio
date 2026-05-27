@@ -9,7 +9,7 @@ interface ExperienceItemProps {
 const {date, title, description, option, company} = Astro.props as ExperienceItemProps;
 ---
 
-<li class="mb-20 ms-14">            
+<li class="mb-18 ms-14">            
     <span class="absolute flex items-center justify-center size-6 bg-primary-blue rounded-full -inset-s-3.5 ring-8">
     </span>
     <h3 class="flex items-center mb-2 text-2xl font-semibold text-primary-white my-2 ">
@@ -25,7 +25,7 @@ const {date, title, description, option, company} = Astro.props as ExperienceIte
         {company && <span class="mx-2">|</span>}
         <span>{date}</span>
     </div>
-    <p class="mb-4 text-secondary-gray text-lg font-normal">
+    <p class="mb-1 text-secondary-gray/80 text-lg font-normal">
         {description}
     </p>
 </li>
