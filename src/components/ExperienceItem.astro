@@ -9,8 +9,8 @@ interface ExperienceItemProps {
 const {date, title, description, option, company} = Astro.props as ExperienceItemProps;
 ---
 
-<li class="mb-18 ms-14">            
-    <span class="absolute flex items-center justify-center size-6 bg-primary-blue rounded-full -inset-s-3.5 ring-8">
+<li class="experience-item relative mb-18 ms-14 opacity-0 translate-y-30 transition-all duration-1000 ease-out ">            
+    <span class="absolute flex items-center justify-center size-6 bg-primary-blue rounded-full -left-17.5 ring-8">
     </span>
     <h3 class="flex items-center mb-2 text-2xl font-semibold text-primary-white my-2 ">
         {title}
@@ -29,3 +29,19 @@ const {date, title, description, option, company} = Astro.props as ExperienceIte
         {description}
     </p>
 </li>
+
+<script>
+  const items = document.querySelectorAll('.experience-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        entry.target.classList.remove('opacity-0', 'translate-y-30');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach((item) => observer.observe(item));
+</script>
