@@ -1,6 +1,8 @@
 @import "tailwindcss";
 /* Supports weights 100-800 */
 @import "@fontsource-variable/jetbrains-mono/wght.css";
+@import 'tailwindcss';
+@import 'tailwind-animations';
 
 @theme {
   --font-jetbrains: "JetBrains Mono Variable", monospace;

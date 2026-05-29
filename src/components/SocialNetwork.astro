@@ -1,2 +1,6 @@
-Crear con una forma parecida a las tecnologías, pero donde la palabra se desplace hacia la derecha al hacer hover.
-Esto iría dentro de Contacto. Poner github, linkedin y correo electrónico.
+<span class={`group flex items-center gap-2 text-lg rounded-2xl px-3 py-2 cursor-pointer ${Astro.props.className}`}>
+    <Astro.props.icon class="size-5"/>
+    <span class="group-hover:animate-fade-in-right">
+        {Astro.props.text}
+    </span>
+</span>
