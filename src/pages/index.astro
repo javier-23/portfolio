@@ -7,6 +7,7 @@ import Layout from '../layouts/Layout.astro';
 import Message from '../icons/Message.astro';
 import Projects from '../components/Projects.astro';
 import Terminal from '../components/Terminal.astro';
+import CircuitBackground from '../components/CircuitBackground.astro';
 ---
 
 <Layout title="Portfolio de Javier Mora - Programador y desarrollador web" 
@@ -15,6 +16,7 @@ import Terminal from '../components/Terminal.astro';
 	<main>
 		<!-- Sección de bienvenida -->
 		<section class="min-h-screen flex flex-col justify-center items-center" id="home">
+			<CircuitBackground />
 			<div class="w-full flex justify-center items-center gap-20 -mt-40">	
 				<Terminal/>
 				<div class="size-80 rounded-full overflow-hidden border-2 border-blue-600">
