@@ -1,29 +1,19 @@
 ---
 const lanes = [
-  { side: 'left', className: 'left-0 w-1/5' },
-  { side: 'right', className: 'right-0 w-1/5' }
+  { side: 'left', className: 'left-[-2%] w-1/5' },
+  { side: 'right', className: 'right-[-2%] w-1/5' }
 ];
 ---
 
-<div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden select-none">
+<div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden select-none" data-circuit-background>
   {lanes.map((lane) => (
-    <div class={`absolute top-0 h-full ${lane.className} opacity-80`}>
+    <div class={`absolute h-full ${lane.className} opacity-80`}>
       <svg
         class={`absolute inset-0 h-full w-full text-gray-500/20 ${lane.side === 'right' ? 'scale-x-[-1]' : ''}`}
         viewBox="0 0 300 1000"
-        preserveAspectRatio="none"
+        preserveAspectRatio="xMidYMid meet"
       >
-        <defs>
-          <filter id="electric-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
           <path d="M 0 80 H 90 V 220 H 160" />
           <path d="M 40 0 V 110 H 130 V 310 H 220" />
           <path d="M 150 0 V 70 H 250 V 190 H 190" />
@@ -34,16 +24,16 @@ const lanes = [
         </g>
 
         <g fill="currentColor" class="text-gray-500/40">
-          <circle cx="160" cy="220" r="5" />
-          <circle cx="220" cy="310" r="5" />
-          <circle cx="190" cy="190" r="5" />
-          <circle cx="240" cy="660" r="5" />
-          <circle cx="120" cy="420" r="5" />
-          <circle cx="200" cy="860" r="5" />
-          <circle cx="160" cy="780" r="5" />
+          <circle cx="160" cy="220" r="7" />
+          <circle cx="220" cy="310" r="7" />
+          <circle cx="190" cy="190" r="7" />
+          <circle cx="240" cy="660" r="7" />
+          <circle cx="120" cy="420" r="7" />
+          <circle cx="200" cy="860" r="7" />
+          <circle cx="160" cy="780" r="7" />
         </g>
 
-        <g fill="none" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#electric-glow)">
+        <g fill="none" stroke="#e2e8f0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
           <path class="pulse-line pulse-delay-1" d="M 0 80 H 90 V 220 H 160" />
           <path class="pulse-line pulse-delay-2" d="M 40 0 V 110 H 130 V 310 H 220" />
           <path class="pulse-line pulse-delay-3" d="M 150 0 V 70 H 250 V 190 H 190" />
@@ -57,22 +47,32 @@ const lanes = [
 </div>
 
 <style>
-  /* Configuración del efecto cometa (Pulso corto de luz itinerante) */
   .pulse-line {
-    /* El primer número es la longitud del pulso de luz, el segundo es el espacio vacío */
-    stroke-dasharray: 50 1000; 
+    stroke-dasharray: 60 1000; 
     stroke-dashoffset: 1060;
     opacity: 0;
+    
+    /* Brillo mucho más ligero y limpio usando CSS drop-shadow nativo */
+    filter: drop-shadow(0 0 3px rgba(226, 232, 240, 0.6));
+    
+    /* Le avisa al navegador qué propiedad va a cambiar para que use aceleración gráfica (GPU) */
+    will-change: stroke-dashoffset;
+    
+    /* Animación ralentizada significativamente */
     animation: electric-flow 7s infinite linear;
   }
 
-  /* Desfases y duraciones personalizadas para romper la sincronía y simular aleatoriedad */
-  .pulse-delay-1 { animation-duration: 6s;  animation-delay: 0.5s; }
-  .pulse-delay-2 { animation-duration: 8s;  animation-delay: 3.2s; }
-  .pulse-delay-3 { animation-duration: 5.5s; animation-delay: 1.8s; }
-  .pulse-delay-4 { animation-duration: 9s;  animation-delay: 4.5s; }
-  .pulse-delay-5 { animation-duration: 7s;  animation-delay: 2.3s; }
-  .pulse-delay-6 { animation-duration: 6.5s; animation-delay: 5.8s; }
+  .circuit-paused .pulse-line {
+    animation-play-state: paused;
+  }
+
+  /* Tiempos y retrasos duplicados/suavizados para evitar acumulación de elementos en pantalla */
+  .pulse-delay-1 { animation-duration: 12s;  animation-delay: 1.0s; }
+  .pulse-delay-2 { animation-duration: 11s;  animation-delay: 6.4s; }
+  .pulse-delay-3 { animation-duration: 11s;  animation-delay: 3.6s; }
+  .pulse-delay-4 { animation-duration: 14s;  animation-delay: 9.0s; }
+  .pulse-delay-5 { animation-duration: 12s;  animation-delay: 4.6s; }
+  .pulse-delay-6 { animation-duration: 10s;  animation-delay: 11.6s; }
 
   @keyframes electric-flow {
     0% {
@@ -80,7 +80,7 @@ const lanes = [
       opacity: 0;
     }
     2% {
-      opacity: 1; /* Aparece rápido al entrar desde el extremo */
+      opacity: 1;
     }
     48% {
       stroke-dashoffset: 0;
@@ -88,7 +88,31 @@ const lanes = [
     }
     50%, 100% {
       stroke-dashoffset: -60;
-      opacity: 0; /* Desaparece al llegar al nodo y descansa antes del siguiente ciclo */
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-line {
+      animation: none;
     }
   }
 </style>
+
+<script>
+  const background = document.querySelector('[data-circuit-background]');
+  const section = background?.closest('section');
+
+  if (background && section) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        background.classList.toggle('circuit-paused', !entry.isIntersecting);
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    observer.observe(section);
+  }
+</script>
