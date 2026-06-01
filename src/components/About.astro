@@ -1,0 +1,31 @@
+---
+import SkillsAbout from './SkillsAbout.astro';
+
+const LANGUAGE_SKILLS = ["cplusplus", "javascript", "html", "css"];
+const FRAMEWORKS_SKILLS = ["express", "react", "astro", "tailwind"];
+const BACKEND_SKILLS = ["nodejs", "postgres"];
+const TOOLS_SKILLS = ["git", "docker"];
+
+---
+<div class="p-1 flex justify-center items-center">
+    <p class="text-primary-white/80 font-normal text-lg">
+        Soy un <span class="text-blue-400 font-bold">desarrollador de software</span> apasionado por la tecnología y el aprendizaje. Me especializo en el desarrollo <span class="text-blue-400 font-bold">frontend</span>, con experiencia en <span class="text-blue-400 font-bold">backend</span> y <span class="text-blue-400 font-bold">bases de datos</span>. Me encanta crear interfaces atractivas y funcionales, y siempre estoy buscando nuevas formas de mejorar mis habilidades y conocimientos.
+    </p>
+</div>
+<div class="flex justify-center items-center flex-col col-span-2">
+    <h2 class="text-shadow-blue-800 text-shadow-lg text-white font-bold text-2xl flex justify-center items-center">
+        Habilidades
+    </h2>
+    <div class="w-full grid md:grid-cols-2 gap-2">
+        <SkillsAbout title="Lenguajes" skills={LANGUAGE_SKILLS} />
+        <SkillsAbout title="Frameworks" skills={FRAMEWORKS_SKILLS} />
+        <SkillsAbout title="Backend" skills={BACKEND_SKILLS} />
+        <SkillsAbout title="Herramientas" skills={TOOLS_SKILLS} />
+    </div>
+</div>
+
+<div class="col-span-3 grid-rows-2 mt-10">
+    <h2 class="text-shadow-blue-800 text-shadow-lg text-white font-bold text-2xl flex justify-center items-center">
+        Certificados/Cursos
+    </h2>
+</div>

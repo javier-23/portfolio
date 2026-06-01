@@ -1,0 +1,9 @@
+---
+import { TECHNOLOGIES } from "../data/technologies.ts";
+const { techKey } = Astro.props as { techKey: keyof typeof TECHNOLOGIES };
+const tech = techKey ? TECHNOLOGIES[techKey] : undefined;
+---
+<span class={`flex items-center gap-1 text-sm rounded-2xl px-3 py-2 text-primary-white/80 ${tech?.class}`}>
+    {tech && <tech.image class="size-5"/>}
+    {tech?.name}
+</span>

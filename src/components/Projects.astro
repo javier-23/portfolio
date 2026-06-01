@@ -1,38 +1,5 @@
 ---
-import AstroIcon from "../icons/Astro.astro";
-import TailwindIcon from "../icons/Tailwind.astro";
-import JavaScriptIcon from "../icons/JavaScript.astro";
-import ReactIcon from "../icons/React.astro";
-import NodeIcon from "../icons/Node.astro";
-
-const TECHNOLOGY = {
-    astro: {
-        name: "Astro",
-        class: "bg-cyan-400/10",
-        image: AstroIcon,
-    },
-    tailwind: {
-        name: "Tailwind CSS",
-        class: "bg-blue-400/10",
-        image: TailwindIcon,
-    },
-    javascript: {
-        name: "JavaScript",
-        class: "bg-yellow-400/10",
-        description: "JavaScript es un lenguaje de programación versátil y ampliamente utilizado para el desarrollo web, que permite crear interactividad y funcionalidades dinámicas en los sitios web.",
-        image: JavaScriptIcon,
-    },
-    react: { 
-        name: "React", 
-        class: "bg-sky-400/10", 
-        image: ReactIcon
-    },
-    nodejs: { 
-        name: "Node.js", 
-        class: "bg-green-400/10", 
-        image: NodeIcon
-    },
-}
+import TechnologySpan from './TechnologySpan.astro';
 
 const PROJECTS = [
     {
@@ -40,14 +7,14 @@ const PROJECTS = [
         description: "Mi portafolio personal, construido con Astro y Tailwind CSS, diseñado para mostrar mis habilidades y proyectos de manera atractiva y profesional.",
         link: "",
         image: "projects/portfolio1.png",
-        technologies: [TECHNOLOGY.astro, TECHNOLOGY.tailwind, TECHNOLOGY.javascript]
+        technologies: ["astro", "tailwind"]
     },
     {
         name: "Gestor de Tareas",
         description: "Una aplicación web para gestionar tareas diarias, con funcionalidades de creación, edición y eliminación de tareas, utilizando React y Node.js.",
         link: "",
         image: "projects/portfolio1.png",
-        technologies: [TECHNOLOGY.react, TECHNOLOGY.nodejs]
+        technologies: ["react", "nodejs", "javascript"]
     },
     {
         name: "Blog Personal",
@@ -69,11 +36,8 @@ const PROJECTS = [
             <p class="text-secondary-gray/80 mb-5">{project.description}</p>
             <ul class="flex flex-wrap gap-3">
                 {project.technologies.map((tech) => (
-                    <li class="text-primary-white/80">
-                        <span class={`flex items-center gap-1 text-sm rounded-2xl px-3 py-2 ${tech.class}`}>
-                            <tech.image class="size-5"/>
-                            {tech.name}
-                        </span>
+                    <li>
+                        <TechnologySpan techKey={tech} />
                     </li>
                 ))}
             </ul>
