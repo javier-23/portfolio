@@ -1,0 +1,15 @@
+--- 
+const {Icon, title, id, contentClass} = Astro.props;
+---
+
+<section class="flex justify-center mt-10 mb-20" id={id}>
+    <div class="w-full max-w-4xl flex flex-col items-start">
+        <h2 class="flex items-center text-4xl font-bold text-primary-white mb-8">
+            {Icon && <Icon class="size-9 text-primary-white me-2"/>}
+            {title}
+        </h2>
+        <div class:list={["w-full", contentClass]}>
+            <slot />
+        </div>
+    </div>
+</section>

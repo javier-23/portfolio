@@ -7,25 +7,35 @@ const BACKEND_SKILLS = ["nodejs", "postgres"];
 const TOOLS_SKILLS = ["git", "docker"];
 
 ---
-<div class="p-1 flex justify-center items-center">
-    <p class="text-primary-white/80 font-normal text-lg">
-        Soy un <span class="text-blue-400 font-bold">desarrollador de software</span> apasionado por la tecnología y el aprendizaje. Me especializo en el desarrollo <span class="text-blue-400 font-bold">frontend</span>, con experiencia en <span class="text-blue-400 font-bold">backend</span> y <span class="text-blue-400 font-bold">bases de datos</span>. Me encanta crear interfaces atractivas y funcionales, y siempre estoy buscando nuevas formas de mejorar mis habilidades y conocimientos.
-    </p>
-</div>
-<div class="flex justify-center items-center flex-col col-span-2">
-    <h2 class="text-shadow-blue-800 text-shadow-lg text-white font-bold text-2xl flex justify-center items-center">
+<div class="w-full rounded-2xl border border-primary-white/10 bg-white/5 p-6 md:p-8 shadow-[0_0_30px_rgba(21,93,252,0.08)] backdrop-blur-sm">
+    <div class="mb-8 border-l-4 border-primary-blue pl-4">
+      <p class="text-primary-white/80 font-normal leading-relaxed text-base md:text-lg max-w-3xl">
+        Soy un <span class="text-blue-400 font-semibold">desarrollador de software</span> apasionado por la tecnología y el aprendizaje. Me especializo en el desarrollo <span class="text-blue-400 font-semibold">frontend</span>, con experiencia en <span class="text-blue-400 font-semibold">backend</span> y <span class="text-blue-400 font-semibold">bases de datos</span>. Me gusta crear interfaces atractivas y funcionales, y siempre busco mejorar mis habilidades y conocimientos.
+      </p>
+    </div>
+
+    <div class="mb-10">
+      <h3 class="text-primary-white font-bold text-xl mb-4 flex items-center gap-3">
+        <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_14px_rgba(34,211,238,0.8)]"></span>
         Habilidades
-    </h2>
-    <div class="w-full grid md:grid-cols-2 gap-2">
+      </h3>
+
+      <div class="grid gap-4 md:grid-cols-2">
         <SkillsAbout title="Lenguajes" skills={LANGUAGE_SKILLS} />
         <SkillsAbout title="Frameworks" skills={FRAMEWORKS_SKILLS} />
         <SkillsAbout title="Backend" skills={BACKEND_SKILLS} />
         <SkillsAbout title="Herramientas" skills={TOOLS_SKILLS} />
+      </div>
     </div>
-</div>
 
-<div class="col-span-3 grid-rows-2 mt-10">
-    <h2 class="text-shadow-blue-800 text-shadow-lg text-white font-bold text-2xl flex justify-center items-center">
-        Certificados/Cursos
-    </h2>
-</div>
+    <div>
+      <h3 class="text-primary-white font-bold text-xl mb-4 flex items-center gap-3">
+        <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_14px_rgba(34,211,238,0.8)]"></span>
+        Certificados y cursos
+      </h3>
+
+      <div class="rounded-xl border border-dashed border-primary-white/15 bg-black/20 p-5 text-primary-white/60">
+        Aquí puedes añadir tus certificados o cursos cuando tengas el contenido listo.
+      </div>
+    </div>
+  </div>

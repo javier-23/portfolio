@@ -9,6 +9,8 @@ import Projects from '../components/Projects.astro';
 import Terminal from '../components/Terminal.astro';
 import CircuitBackground from '../components/CircuitBackground.astro';
 import About from '../components/About.astro';
+import Section from '../components/Section.astro';
+import User from '../icons/User.astro';
 ---
 
 <Layout title="Portfolio de Javier Mora - Programador y desarrollador web" 
@@ -36,50 +38,20 @@ import About from '../components/About.astro';
 			</div>
 		</section>
 
-		<section class="flex justify-center mt-10 mb-20" id="experience">
-			<div class="w-full max-w-4xl flex flex-col items-start">
-				<h2 class="flex items-center text-4xl font-bold text-primary-white mb-8">
-					<Briefcase class="size-9 text-primary-white me-2"/>
-					Experiencia laboral y académica
-				</h2>
-				<Experience/>
-			</div>
-		</section>
+		<Section id="experience" title="Experiencia laboral y académica" Icon={Briefcase}>
+			<Experience />
+		</Section>
 
-		<section class="flex justify-center mt-10 mb-20" id="projects">
-			<div class="w-full max-w-4xl flex flex-col items-start">
-				<h2 class="flex items-center text-4xl font-bold text-primary-white mb-8">
-					<Code class="size-9 text-primary-white me-2"/>
-					Proyectos
-				</h2>
-				<div class="w-full grid md:grid-cols-2 gap-8">
-					<Projects/>
-				</div>
-			</div>
-		</section>
+		<Section id="projects" title="Proyectos" Icon={Code} contentClass="grid md:grid-cols-2 gap-8">
+			<Projects />
+		</Section>
 
-		<section class="flex justify-center mt-10 mb-20" id="about">
-			<div class="w-full max-w-4xl flex flex-col items-start">
-				<h2 class="flex items-center text-4xl font-bold text-primary-white mb-8">
-					<Code class="size-9 text-primary-white me-2"/>
-					Sobre mí
-				</h2>
-				<div class="w-full grid md:grid-cols-2 gap-1">
-					<About/>
-				</div>
-			</div>
-		</section>
+		<Section id="about" title="Sobre mí" Icon={User} contentClass="">
+			<About />
+		</Section>
 
-		<section class="flex justify-center mt-10 mb-20" id="contact">
-			<div class="w-full max-w-4xl flex flex-col items-start">
-				<h2 class="flex items-center text-4xl font-bold text-primary-white mb-8">
-					<Message class="size-8 text-primary-white me-2"/>
-					Contacto
-				</h2>
-				<div class="w-full grid md:grid-cols-2 gap-8">
-					<Contact/>
-				</div>
-			</div>
-		</section>
+		<Section id="contact" title="Contacto" Icon={Message} contentClass="grid md:grid-cols-2 gap-8">
+			<Contact />
+		</Section>
 	</main>
 </Layout>
