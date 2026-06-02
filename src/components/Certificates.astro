@@ -1,0 +1,33 @@
+---
+import CertificateItem from './CertificateItem.astro';
+
+const CERTIFICATES = [
+  {
+    title: 'Desarrollo Web Full‑Stack',
+    date: 'Marzo 2025',
+    issuer: 'Platzi',
+    description: 'Curso avanzado de desarrollo web con énfasis en React, Node.js y despliegue.',
+    type: 'Online',
+    href: '/certificates/Certificado1.pdf'
+  },
+  {
+    title: 'Certificado Docker Essentials',
+    date: 'Enero 2024',
+    issuer: 'Docker',
+    description: 'Conceptos y buenas prácticas para contenerización de aplicaciones.',
+  },
+  {
+    title: 'Bases de Datos Relacionales',
+    date: 'Junio 2023',
+    issuer: 'Universidad de Granada',
+    description: 'Asignatura complementaria centrada en diseño y optimización de SQL.',
+    type: 'Formación'
+  }
+];
+---
+
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+  {CERTIFICATES.map(cert => (
+    <CertificateItem {...cert} />
+  ))}
+</div>

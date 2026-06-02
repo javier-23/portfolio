@@ -1,0 +1,55 @@
+---
+import CertificateIcon from '../icons/Certificate.astro';
+import CalendarIcon from '../icons/Calendar.astro';
+interface Props {
+  title: string;
+  date: string;
+  description?: string;
+  issuer: string;
+  type?: string;
+  href?: string;
+}
+const { title, date, description='', issuer, type, href } = Astro.props as Props;
+---
+<a href={href} target="_blank" rel="noopener noreferrer" class="group block">
+    <article class="bg-gray-800 hover:ring-2 hover:ring-primary-blue hover:scale-105 transition-transform duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.18)]
+                    cursor-pointer rounded-lg overflow-hidden p-5 shadow-md
+                    h-full flex flex-col">
+    <h3 class="flex items-center text-xl font-semibold text-primary-white mb-3">
+        <CertificateIcon class="text-blue-500 mr-2" aria-hidden="true"/>
+        {title}
+        {type && (
+        <span class="ms-2 bg-primary-blue/20 border border-primary-blue text-xs font-medium px-2 py-0.5 rounded">
+            {type}
+        </span>
+        )}
+    </h3>
+
+    <div class="inline-flex w-fit mb-3 text-sm font-medium text-secondary-gray items-center">
+        <span class="border border-default-medium border-primary-blue px-3 py-1 rounded-2xl">
+            {issuer}
+        </span>
+        <span class="mx-2 ">|</span>
+        <span class="border border-default-medium border-primary-blue px-3 py-1 flex items-center rounded-2xl">
+            <CalendarIcon class="size-5 mr-1" aria-hidden="true"/>
+            <time datetime={date}>{date}</time>
+        </span>
+    </div>
+
+    {description && (
+        <p class="text-secondary-gray/80 text-base mb-3">
+            {description}
+        </p>
+    )}
+
+    {href && (
+        <span class="mt-auto inline-block 
+                    text-sm text-blue-500 font-medium 
+                    opacity-0 translate-y-1 transition-all duration-300 
+                    group-hover:opacity-100 group-hover:translate-y-0 group-hover:underline">
+            Ver certificado
+        </span>
+    )}
+
+    </article>
+</a>
