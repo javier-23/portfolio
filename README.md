@@ -1,3 +1,4 @@
 # Porfolio personal
-<img width="1489" height="771" alt="Captura de pantalla 2026-06-03 a las 11 30 59" src="https://github.com/user-attachments/assets/c7fa38ed-14df-4ba0-a4d2-49b473787f19" />
+<img width="1920" height="1440" alt="213shots_so" src="https://github.com/user-attachments/assets/f5f54f9a-e2b9-4cbb-b723-e12563932844" />
+
 
