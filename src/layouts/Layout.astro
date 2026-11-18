@@ -3,6 +3,16 @@ import Header from "../components/Header.astro";
 import "../styles/global.css";
 import '@fontsource-variable/roboto/wght.css';
 import Footer from "../components/Footer.astro";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Javier Mora | Desarrollador web full-stack",
+	description = "Portfolio de Javier Mora, desarrollador web full-stack. Conoce mi experiencia, proyectos y habilidades en desarrollo web."
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -13,8 +23,15 @@ import Footer from "../components/Footer.astro";
 		<link rel="icon" type="image/svg+xml" href="/terminal.svg" media="(prefers-color-scheme: light)"/>
 		<link rel="icon" type="image/svg+xml" href="/terminal-white.svg" media="(prefers-color-scheme: dark)" />
 		<link rel="icon" href="/terminal.ico"/>
-		<meta name="description" content="Contratame como desarrollador web full-stack" />
-		<title>Porfolio - Javier Mora</title>
+		<meta name="description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<title>{title}</title>
 	</head>
 	<body>
 		<Header />
